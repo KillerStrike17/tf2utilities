@@ -6,6 +6,8 @@ import math
 import inspect
 import functools
 import time
+from datetime import datetime
+from tensorflow import keras
 
 from shutil import copyfile
 from google.colab import drive
@@ -28,9 +30,9 @@ def timer(func):
     return wrapper_timer
 @timer
 def checkTFversion(func):
-  if str(tf.__version__)[:1]!='2':  
-    # print('your version of tensorflow is ', tf.__version__)    
-    raise AssertionError('\n your version of tensorflow is ' + tf.__version__ + '\n Please execute the following to upgrade to 2.0 \n pip uninstall tensorflow \n pip install -U --pre tensorflow \n')    
+  if str(tf.__version__)[:1]!='2':
+    # print('your version of tensorflow is ', tf.__version__)
+    raise AssertionError('\n your version of tensorflow is ' + tf.__version__ + '\n Please execute the following to upgrade to 2.0 \n pip uninstall tensorflow \n pip install -U --pre tensorflow \n')
     return 'F'
   else:
     @functools.wraps(func)
@@ -41,7 +43,7 @@ def checkTFversion(func):
 
 @timer
 def install_tf2():
-  if str(tf.__version__)[:1]!='2': 
+  if str(tf.__version__)[:1]!='2':
     os.system('pip uninstall tensorflow')
     os.system('pip install -U --pre tensorflow')
     print('TF 2.0 installed')

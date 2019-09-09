@@ -7,7 +7,7 @@
 ```
 
     fatal: destination path 'tf2utilities' already exists and is not an empty directory.
-    
+
 
 # import utilities to get APIs
 
@@ -17,8 +17,8 @@ import tf2utilities.utilities as tf2
 ```
 
 # The following will install TensorFlow 2.0 version (This might take time)
-## At the end of installation, we will have to 
-## ***Runtime => Restart Runtime*** 
+## At the end of installation, we will have to
+## ***Runtime => Restart Runtime***
 ## for TF2.0 to take effect
 
 
@@ -37,10 +37,10 @@ if str(tf.__version__)[:1]!='2':
     TF 2.0 already installed
     Finished 'install_tf2' in 0.0017 secs
     The current version of tensorflow is  2.0.0-rc0
-    
+
 
 ## Please (if the installed version is not 2.0)
-## ***Runtime => Restart Runtime*** 
+## ***Runtime => Restart Runtime***
 ## for TF2.0 to take effect
 
 # Mount Google drive,if using Colab
@@ -51,7 +51,7 @@ tf2.mount()
 ```
 
     Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount("/content/drive", force_remount=True).
-    
+
 
 # The API to create tfrecords is tf2.create_tfrecords
 
@@ -87,13 +87,15 @@ tf2.create_classfile(os.path.join(path, 'classes.txt'),class_names)
     Finished 'convert_to_tfrecords' in 1.3352 secs
     Finished 'create_tfrecords' in 1.3363 secs
     Finished 'create_classfile' in 0.3842 secs
-    
+
 
 ## Downloading cifar10 and storing to gdrive
 
 
 ```python
-# (x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
+# (x_train, y_train), (x_test, y_tstringlist = []
+model.summary(print_fn=lambda x: stringlist.append(x))
+model_summary = "\n".join(stringlist)est) = tf.keras.datasets.cifar10.load_data()
 # class_names = ['airplane','automobile','bird','cat','deer','dog','frog','horse','ship','truck']
 # path=r'/content/drive/My Drive/EVAData/cifar10'
 
@@ -117,7 +119,21 @@ tf2.create_classfile(os.path.join(path, 'classes.txt'),class_names)
     Finished 'convert_to_tfrecords' in 2.7447 secs
     Finished 'create_tfrecords' in 2.7465 secs
     Finished 'create_classfile' in 0.4243 secs
-    
+
+# Logging the Data
+
+Call the function *logmodel* to create a log.
+
+### To convert Model.summary to String
+
+#### code
+
+stringlist = []
+
+model.summary(print_fn=lambda x: stringlist.append(x))
+
+model_summary = "\n".join(stringlist)
+
 
 # Data Augmentation
 
@@ -5181,4 +5197,3 @@ tf2.augment_images(path,class_weight,augment_weight,parallelize)
     Finished 'convert_to_tfrecords' in 1.9533 secs
     Finished 'create_tfrecords' in 1.9539 secs
     Finished 'augment_images' in 75.0992 secs
-    
